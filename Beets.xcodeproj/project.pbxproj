@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C75272531A1B967100C76AFE /* BPMView.m in Sources */ = {isa = PBXBuildFile; fileRef = C75272521A1B967100C76AFE /* BPMView.m */; };
 		C7A662E41A18BC2F00858C0E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A662E31A18BC2F00858C0E /* main.m */; };
 		C7A662EA1A18BC2F00858C0E /* BPMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A662E91A18BC2F00858C0E /* BPMViewController.m */; };
 		C7A662ED1A18BC2F00858C0E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7A662EB1A18BC2F00858C0E /* Main.storyboard */; };
@@ -44,6 +45,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C75272511A1B967100C76AFE /* BPMView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPMView.h; sourceTree = "<group>"; };
+		C75272521A1B967100C76AFE /* BPMView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPMView.m; sourceTree = "<group>"; };
 		C7A662DE1A18BC2F00858C0E /* Beets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7A662E21A18BC2F00858C0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7A662E31A18BC2F00858C0E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -127,6 +130,8 @@
 			children = (
 				C7A662E81A18BC2F00858C0E /* BPMViewController.h */,
 				C7A662E91A18BC2F00858C0E /* BPMViewController.m */,
+				C75272511A1B967100C76AFE /* BPMView.h */,
+				C75272521A1B967100C76AFE /* BPMView.m */,
 				C7A663091A18BF3100858C0E /* BPMDetector.h */,
 				C7A6630A1A18BF3100858C0E /* BPMDetector.m */,
 				C7A663101A19D4BD00858C0E /* Beets.entitlements */,
@@ -332,6 +337,7 @@
 				C7AEBD7E1A1B2DE70018F22A /* AERecorder.m in Sources */,
 				C7A6630B1A18BF3100858C0E /* BPMDetector.m in Sources */,
 				C7AEBD801A1B2DE70018F22A /* TPCircularBuffer+AudioBufferList.c in Sources */,
+				C75272531A1B967100C76AFE /* BPMView.m in Sources */,
 				C7A662E41A18BC2F00858C0E /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

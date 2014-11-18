@@ -1,6 +1,7 @@
 #import <AVFoundation/AVFoundation.h>
 
 #import "BPMViewController.h"
+#import "BPMView.h"
 #import "BPMDetector.h"
 #import "TheAmazingAudioEngine.h"
 #import "AEPlaythroughChannel.h"
@@ -8,7 +9,6 @@
 
 @implementation BPMViewController {
     BPMDetector *_detector;
-    CATextLayer *_bpmLayer;
     AEAudioController *_audioController;
     ABAudiobusController *_audiobusController;
 }
@@ -40,16 +40,6 @@
 
     _detector = [BPMDetector bpmDetectorWithAudioController:_audioController];
 
-    _bpmLayer = [CATextLayer new];
-    _bpmLayer.fontSize = 60;
-    _bpmLayer.font = CGFontCreateWithFontName(CFSTR("HelveticaNeue-Bold"));
-    _bpmLayer.foregroundColor = [[UIColor whiteColor] CGColor];
-    _bpmLayer.frame = self.view.bounds;
-    _bpmLayer.alignmentMode = kCAAlignmentCenter;
-    _bpmLayer.wrapped = NO;
-    _bpmLayer.contentsScale = [[UIScreen mainScreen] scale];
-    [self.view.layer addSublayer:_bpmLayer];
-
     [_audioController start:NULL];
 }
 
@@ -59,27 +49,11 @@
 
     [[AVAudioSession sharedInstance] requestRecordPermission:^(BOOL granted) {
         [_detector listenWithBlock:^(double bpm, double confidence) {
-            if(confidence < 0.2) {
-                _bpmLayer.string = @"...";
-                [self.view setNeedsLayout];
-                return;
-            }
-
-            _bpmLayer.string = [NSString stringWithFormat:@"%.2f", bpm];
-
-            CABasicAnimation *bgAnim = [CABasicAnimation animationWithKeyPath:@"backgroundColor"];
-            bgAnim.toValue = (__bridge id)[[UIColor whiteColor] CGColor];
-            bgAnim.duration = 0.1;
-            bgAnim.autoreverses = YES;
-            [self.view.layer addAnimation:bgAnim forKey:@"bpmFlash"];
-
-            CABasicAnimation *labelAnim = [CABasicAnimation animationWithKeyPath:@"foregroundColor"];
-            labelAnim.toValue = (__bridge id)[[UIColor blackColor] CGColor];
-            labelAnim.duration = 0.1;
-            labelAnim.autoreverses = YES;
-            [_bpmLayer addAnimation:labelAnim forKey:@"bpmFlash"];
-
-            [self.view setNeedsLayout];
+            if(confidence >= 0.2) {
+                self.bpmView.bpm = bpm;
+                [self.bpmView pulsate];
+            } else
+                self.bpmView.bpm = 0;
         }];
     }];
 }
@@ -89,21 +63,19 @@
     [_detector stopListening];
 }
 
-- (void)viewDidLayoutSubviews
+- (void)setView:(UIView * const)aView
 {
-    [super viewDidLayoutSubviews];
+    NSParameterAssert([aView isKindOfClass:[BPMView class]]);
+    [super setView:aView];
+}
 
-    _bpmLayer.position = (CGPoint) {
-        CGRectGetMidX(self.view.bounds),
-        CGRectGetMidY(self.view.bounds)
-    };
-    _bpmLayer.bounds = (CGRect) {
-        0, 0,
-        self.view.bounds.size.width,
-        [_bpmLayer.string sizeWithAttributes:@{
-            NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-Bold" size:60]
-        }].height
-    };
+- (BPMView *)bpmView
+{
+    return (BPMView *)self.view;
+}
+- (void)setBpmView:(BPMView *)aView
+{
+    self.view = aView;
 }
 
 - (BOOL)prefersStatusBarHidden
