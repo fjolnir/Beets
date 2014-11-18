@@ -17,7 +17,32 @@
 		C7A6630B1A18BF3100858C0E /* BPMDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A6630A1A18BF3100858C0E /* BPMDetector.m */; };
 		C7A6630D1A18BF5300858C0E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7A6630C1A18BF5300858C0E /* AVFoundation.framework */; };
 		C7A663121A19D4BD00858C0E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7A663111A19D4BD00858C0E /* AudioToolbox.framework */; };
+		C7AEBCFD1A1B13460018F22A /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7AEBCFC1A1B13460018F22A /* CoreAudio.framework */; };
+		C7AEBD011A1B23040018F22A /* libAudiobus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C7AEBD001A1B23040018F22A /* libAudiobus.a */; };
+		C7AEBD7C1A1B2DE70018F22A /* AEMixerBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = C7AEBD6E1A1B2DE70018F22A /* AEMixerBuffer.m */; };
+		C7AEBD7D1A1B2DE70018F22A /* AEPlaythroughChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = C7AEBD701A1B2DE70018F22A /* AEPlaythroughChannel.m */; };
+		C7AEBD7E1A1B2DE70018F22A /* AERecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = C7AEBD721A1B2DE70018F22A /* AERecorder.m */; };
+		C7AEBD801A1B2DE70018F22A /* TPCircularBuffer+AudioBufferList.c in Sources */ = {isa = PBXBuildFile; fileRef = C7AEBD751A1B2DE70018F22A /* TPCircularBuffer+AudioBufferList.c */; };
+		C7AEBD811A1B2DE70018F22A /* TPCircularBuffer.c in Sources */ = {isa = PBXBuildFile; fileRef = C7AEBD771A1B2DE70018F22A /* TPCircularBuffer.c */; };
+		C7AEBD8A1A1B2E030018F22A /* libTheAmazingAudioEngine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C7AEBD871A1B2DF90018F22A /* libTheAmazingAudioEngine.a */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C7AEBD861A1B2DF90018F22A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7AEBD821A1B2DF90018F22A /* TheAmazingAudioEngine.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 4C215CEC1523A7D500D36CAD;
+			remoteInfo = TheAmazingAudioEngine;
+		};
+		C7AEBD881A1B2E000018F22A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7AEBD821A1B2DF90018F22A /* TheAmazingAudioEngine.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 4C215CEB1523A7D500D36CAD;
+			remoteInfo = TheAmazingAudioEngine;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		C7A662DE1A18BC2F00858C0E /* Beets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beets.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -36,6 +61,34 @@
 		C7A6630C1A18BF5300858C0E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		C7A663101A19D4BD00858C0E /* Beets.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Beets.entitlements; sourceTree = "<group>"; };
 		C7A663111A19D4BD00858C0E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		C7AEBCFC1A1B13460018F22A /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		C7AEBD001A1B23040018F22A /* libAudiobus.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libAudiobus.a; path = "Audiobus-SDK/libAudiobus.a"; sourceTree = SOURCE_ROOT; };
+		C7AEBD051A1B23230018F22A /* ABAnimatedTrigger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABAnimatedTrigger.h; sourceTree = "<group>"; };
+		C7AEBD061A1B23230018F22A /* ABAudiobusController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABAudiobusController.h; sourceTree = "<group>"; };
+		C7AEBD071A1B23230018F22A /* ABAudioUnitFader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABAudioUnitFader.h; sourceTree = "<group>"; };
+		C7AEBD081A1B23230018F22A /* ABButtonTrigger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABButtonTrigger.h; sourceTree = "<group>"; };
+		C7AEBD091A1B23230018F22A /* ABCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABCommon.h; sourceTree = "<group>"; };
+		C7AEBD0A1A1B23230018F22A /* ABFilterPort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABFilterPort.h; sourceTree = "<group>"; };
+		C7AEBD0B1A1B23230018F22A /* ABLocalPort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABLocalPort.h; sourceTree = "<group>"; };
+		C7AEBD0C1A1B23230018F22A /* ABMultiStreamBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABMultiStreamBuffer.h; sourceTree = "<group>"; };
+		C7AEBD0D1A1B23230018F22A /* ABPeer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABPeer.h; sourceTree = "<group>"; };
+		C7AEBD0E1A1B23230018F22A /* ABPort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABPort.h; sourceTree = "<group>"; };
+		C7AEBD0F1A1B23230018F22A /* ABReceiverPort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABReceiverPort.h; sourceTree = "<group>"; };
+		C7AEBD101A1B23230018F22A /* ABSenderPort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABSenderPort.h; sourceTree = "<group>"; };
+		C7AEBD111A1B23230018F22A /* ABTrigger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ABTrigger.h; sourceTree = "<group>"; };
+		C7AEBD121A1B23230018F22A /* Audiobus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Audiobus.h; sourceTree = "<group>"; };
+		C7AEBD6D1A1B2DE70018F22A /* AEMixerBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AEMixerBuffer.h; sourceTree = "<group>"; };
+		C7AEBD6E1A1B2DE70018F22A /* AEMixerBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AEMixerBuffer.m; sourceTree = "<group>"; };
+		C7AEBD6F1A1B2DE70018F22A /* AEPlaythroughChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AEPlaythroughChannel.h; sourceTree = "<group>"; };
+		C7AEBD701A1B2DE70018F22A /* AEPlaythroughChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AEPlaythroughChannel.m; sourceTree = "<group>"; };
+		C7AEBD711A1B2DE70018F22A /* AERecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AERecorder.h; sourceTree = "<group>"; };
+		C7AEBD721A1B2DE70018F22A /* AERecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AERecorder.m; sourceTree = "<group>"; };
+		C7AEBD741A1B2DE70018F22A /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.markdown; sourceTree = "<group>"; };
+		C7AEBD751A1B2DE70018F22A /* TPCircularBuffer+AudioBufferList.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "TPCircularBuffer+AudioBufferList.c"; sourceTree = "<group>"; };
+		C7AEBD761A1B2DE70018F22A /* TPCircularBuffer+AudioBufferList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TPCircularBuffer+AudioBufferList.h"; sourceTree = "<group>"; };
+		C7AEBD771A1B2DE70018F22A /* TPCircularBuffer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = TPCircularBuffer.c; sourceTree = "<group>"; };
+		C7AEBD781A1B2DE70018F22A /* TPCircularBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCircularBuffer.h; sourceTree = "<group>"; };
+		C7AEBD821A1B2DF90018F22A /* TheAmazingAudioEngine.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TheAmazingAudioEngine.xcodeproj; path = TheAmazingAudioEngine/TheAmazingAudioEngine.xcodeproj; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,9 +96,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7AEBD8A1A1B2E030018F22A /* libTheAmazingAudioEngine.a in Frameworks */,
+				C7AEBCFD1A1B13460018F22A /* CoreAudio.framework in Frameworks */,
 				C7A6630D1A18BF5300858C0E /* AVFoundation.framework in Frameworks */,
 				C7A663081A18BF1300858C0E /* libaubio.a in Frameworks */,
 				C7A663121A19D4BD00858C0E /* AudioToolbox.framework in Frameworks */,
+				C7AEBD011A1B23040018F22A /* libAudiobus.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,6 +138,8 @@
 				C7A662EB1A18BC2F00858C0E /* Main.storyboard */,
 				C7A662F01A18BC2F00858C0E /* LaunchScreen.xib */,
 				C7A662EE1A18BC2F00858C0E /* Images.xcassets */,
+				C7AEBD311A1B2D660018F22A /* TheAmazingAudioEngine */,
+				C7AEBD041A1B23230018F22A /* Audiobus */,
 				C7A662E11A18BC2F00858C0E /* Supporting Files */,
 			);
 			path = Beets;
@@ -99,12 +157,81 @@
 		C7A6630E1A18C07D00858C0E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C7A663111A19D4BD00858C0E /* AudioToolbox.framework */,
 				C7A663071A18BF1300858C0E /* libaubio.a */,
+				C7AEBCFC1A1B13460018F22A /* CoreAudio.framework */,
+				C7A663111A19D4BD00858C0E /* AudioToolbox.framework */,
 				C7A6630C1A18BF5300858C0E /* AVFoundation.framework */,
 			);
 			name = Frameworks;
 			path = Beets;
+			sourceTree = "<group>";
+		};
+		C7AEBD041A1B23230018F22A /* Audiobus */ = {
+			isa = PBXGroup;
+			children = (
+				C7AEBD001A1B23040018F22A /* libAudiobus.a */,
+				C7AEBD051A1B23230018F22A /* ABAnimatedTrigger.h */,
+				C7AEBD061A1B23230018F22A /* ABAudiobusController.h */,
+				C7AEBD071A1B23230018F22A /* ABAudioUnitFader.h */,
+				C7AEBD081A1B23230018F22A /* ABButtonTrigger.h */,
+				C7AEBD091A1B23230018F22A /* ABCommon.h */,
+				C7AEBD0A1A1B23230018F22A /* ABFilterPort.h */,
+				C7AEBD0B1A1B23230018F22A /* ABLocalPort.h */,
+				C7AEBD0C1A1B23230018F22A /* ABMultiStreamBuffer.h */,
+				C7AEBD0D1A1B23230018F22A /* ABPeer.h */,
+				C7AEBD0E1A1B23230018F22A /* ABPort.h */,
+				C7AEBD0F1A1B23230018F22A /* ABReceiverPort.h */,
+				C7AEBD101A1B23230018F22A /* ABSenderPort.h */,
+				C7AEBD111A1B23230018F22A /* ABTrigger.h */,
+				C7AEBD121A1B23230018F22A /* Audiobus.h */,
+			);
+			name = Audiobus;
+			path = "Audiobus-SDK/Audiobus";
+			sourceTree = SOURCE_ROOT;
+		};
+		C7AEBD311A1B2D660018F22A /* TheAmazingAudioEngine */ = {
+			isa = PBXGroup;
+			children = (
+				C7AEBD821A1B2DF90018F22A /* TheAmazingAudioEngine.xcodeproj */,
+				C7AEBD661A1B2DE70018F22A /* Modules */,
+			);
+			name = TheAmazingAudioEngine;
+			path = TheAmazingAudioEngine/TheAmazingAudioEngine;
+			sourceTree = SOURCE_ROOT;
+		};
+		C7AEBD661A1B2DE70018F22A /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				C7AEBD6D1A1B2DE70018F22A /* AEMixerBuffer.h */,
+				C7AEBD6E1A1B2DE70018F22A /* AEMixerBuffer.m */,
+				C7AEBD6F1A1B2DE70018F22A /* AEPlaythroughChannel.h */,
+				C7AEBD701A1B2DE70018F22A /* AEPlaythroughChannel.m */,
+				C7AEBD711A1B2DE70018F22A /* AERecorder.h */,
+				C7AEBD721A1B2DE70018F22A /* AERecorder.m */,
+				C7AEBD731A1B2DE70018F22A /* TPCircularBuffer */,
+			);
+			name = Modules;
+			path = TheAmazingAudioEngine/Modules;
+			sourceTree = SOURCE_ROOT;
+		};
+		C7AEBD731A1B2DE70018F22A /* TPCircularBuffer */ = {
+			isa = PBXGroup;
+			children = (
+				C7AEBD741A1B2DE70018F22A /* README.markdown */,
+				C7AEBD751A1B2DE70018F22A /* TPCircularBuffer+AudioBufferList.c */,
+				C7AEBD761A1B2DE70018F22A /* TPCircularBuffer+AudioBufferList.h */,
+				C7AEBD771A1B2DE70018F22A /* TPCircularBuffer.c */,
+				C7AEBD781A1B2DE70018F22A /* TPCircularBuffer.h */,
+			);
+			path = TPCircularBuffer;
+			sourceTree = "<group>";
+		};
+		C7AEBD831A1B2DF90018F22A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C7AEBD871A1B2DF90018F22A /* libTheAmazingAudioEngine.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -121,6 +248,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				C7AEBD891A1B2E000018F22A /* PBXTargetDependency */,
 			);
 			name = Beets;
 			productName = Beets;
@@ -161,12 +289,28 @@
 			mainGroup = C7A662D51A18BC2F00858C0E;
 			productRefGroup = C7A662DF1A18BC2F00858C0E /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = C7AEBD831A1B2DF90018F22A /* Products */;
+					ProjectRef = C7AEBD821A1B2DF90018F22A /* TheAmazingAudioEngine.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				C7A662DD1A18BC2F00858C0E /* Beets */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		C7AEBD871A1B2DF90018F22A /* libTheAmazingAudioEngine.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libTheAmazingAudioEngine.a;
+			remoteRef = C7AEBD861A1B2DF90018F22A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		C7A662DC1A18BC2F00858C0E /* Resources */ = {
@@ -186,14 +330,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7AEBD7D1A1B2DE70018F22A /* AEPlaythroughChannel.m in Sources */,
+				C7AEBD7C1A1B2DE70018F22A /* AEMixerBuffer.m in Sources */,
 				C7A662EA1A18BC2F00858C0E /* BPMViewController.m in Sources */,
+				C7AEBD811A1B2DE70018F22A /* TPCircularBuffer.c in Sources */,
+				C7AEBD7E1A1B2DE70018F22A /* AERecorder.m in Sources */,
 				C7A6630B1A18BF3100858C0E /* BPMDetector.m in Sources */,
 				C7A662E71A18BC2F00858C0E /* BPMAppDelegate.m in Sources */,
+				C7AEBD801A1B2DE70018F22A /* TPCircularBuffer+AudioBufferList.c in Sources */,
 				C7A662E41A18BC2F00858C0E /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C7AEBD891A1B2E000018F22A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = TheAmazingAudioEngine;
+			targetProxy = C7AEBD881A1B2E000018F22A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C7A662EB1A18BC2F00858C0E /* Main.storyboard */ = {
@@ -302,15 +459,18 @@
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(PROJECT_DIR)/aubio/include",
+					"$(BUILT_PRODUCTS_DIR)",
 				);
 				INFOPLIST_FILE = Beets/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/aubio",
+					"$(PROJECT_DIR)/Audiobus-SDK",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				USER_HEADER_SEARCH_PATHS = TheAmazingAudioEngine/TheAmazingAudioEngine;
 			};
 			name = Debug;
 		};
@@ -325,15 +485,18 @@
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(PROJECT_DIR)/aubio/include",
+					"$(BUILT_PRODUCTS_DIR)",
 				);
 				INFOPLIST_FILE = Beets/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/aubio",
+					"$(PROJECT_DIR)/Audiobus-SDK",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				USER_HEADER_SEARCH_PATHS = TheAmazingAudioEngine/TheAmazingAudioEngine;
 			};
 			name = Release;
 		};

@@ -1,44 +1,44 @@
 #import "BPMDetector.h"
 #import <Accelerate/Accelerate.h>
 #import <aubio/aubio.h>
+#import "TheAmazingAudioEngine.h"
+#import <CoreAudio/CoreAudioTypes.h>
+#import "Audiobus.h"
 
-static uint_t const fftSize = 2048,
+static uint_t const fftSize = 1024,
 hopSize = fftSize/4;
 
+@interface BPMDetector () <AEAudioReceiver>
+@property(nonatomic) AEAudioControllerAudioCallback receiverCallback;
+@end
+
+static void _BPMDetector_audioCallback(__unsafe_unretained BPMDetector       *self,
+                                       __unsafe_unretained AEAudioController *audioController,
+                                       void                                  *source,
+                                       const AudioTimeStamp                  *time,
+                                       UInt32                                 frames,
+                                       AudioBufferList                       *audio);
+
 @implementation BPMDetector {
-    AVCaptureSession *_captureSession;
-    AVCaptureAudioDataOutput *_dataOutput;
+    @public
+    AEAudioController *_audioController;
     BPMDetectionBlock _handlerBlock;
-    dispatch_queue_t _detectionQueue;
 
     aubio_tempo_t *_tempo;
 }
+@dynamic running;
 
-+ (instancetype)bpmDetectorWithCaptureInput:(AVCaptureInput * const)aInput
++ (instancetype)bpmDetectorWithAudioController:(AEAudioController *)aController
 {
-    NSParameterAssert(aInput);
-
     BPMDetector *detector = [self new];
-    detector->_input      = aInput;
-
+    detector->_audioController = aController;
+    [aController addInputReceiver:detector];
     return detector;
 }
 
 - (instancetype)init
 {
     if((self = [super init])) {
-        _detectionQueue = dispatch_queue_create([NSStringFromClass([self class]) UTF8String],
-                                                DISPATCH_QUEUE_SERIAL);
-        _dataOutput = [AVCaptureAudioDataOutput new];
-        [_dataOutput setSampleBufferDelegate:self queue:_detectionQueue];
-//        _dataOutput.audioSettings = @{
-//                                      AVFormatIDKey: @(kAudioFormatLinearPCM),
-//                                      AVSampleRateKey: @44100,
-//                                      AVNumberOfChannelsKey: @1,
-//                                      AVLinearPCMBitDepthKey: @32,
-//                                      AVLinearPCMIsFloatKey: @YES
-//                                      };
-
         _tempo = new_aubio_tempo("default", fftSize, hopSize, 44100);
 //        aubio_tempo_set_silence(_tempo, 45);
 //        aubio_tempo_set_threshold(_tempo, 50);
@@ -48,76 +48,67 @@ hopSize = fftSize/4;
 
 - (void)dealloc
 {
-    if(_captureSession)
-        [self stopListening];
     del_aubio_tempo(_tempo);
+}
+
+- (AEAudioControllerAudioCallback)receiverCallback
+{
+    return &_BPMDetector_audioCallback;
 }
 
 - (void)listenWithBlock:(BPMDetectionBlock const)aHandler
 {
-    NSAssert(!_captureSession, @"Detection already in progress!");
+    NSAssert(!_handlerBlock, @"Detection already in progress!");
     _handlerBlock = aHandler;
-
-    _captureSession = [AVCaptureSession new];
-    [_captureSession addInput:_input];
-    [_captureSession addOutput:_dataOutput];
-    [_captureSession startRunning];
 }
 
 - (void)stopListening
 {
-    NSAssert(_captureSession, @"Detection not in progress");
-
-    [_captureSession stopRunning];
-    _captureSession = nil;
-    _handlerBlock   = nil;
+    NSAssert(_handlerBlock, @"Detection not in progress");
+    _handlerBlock = nil;
 }
 
-- (void)captureOutput:(AVCaptureOutput *)captureOutput
-didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
-       fromConnection:(AVCaptureConnection *)connection
+- (BOOL)isRunning
 {
-
-    CMItemCount      const sampleCount = CMSampleBufferGetNumSamples(sampleBuffer);
-    CMBlockBufferRef const audioBuffer = CMSampleBufferGetDataBuffer(sampleBuffer);
-
-    char *rawSampleData;
-    CMBlockBufferGetDataPointer(audioBuffer, 0, NULL, NULL, (char **)&rawSampleData);
-
-    CMAudioFormatDescriptionRef const format = CMSampleBufferGetFormatDescription(sampleBuffer);
-    const AudioStreamBasicDescription *streamDesc = CMAudioFormatDescriptionGetStreamBasicDescription(format);
-    NSAssert(streamDesc->mFormatID == kAudioFormatLinearPCM &&
-             streamDesc->mChannelsPerFrame == 1 &&
-             streamDesc->mBitsPerChannel == 16,
-             @"Unsupported audio format");
-
-    float * const samples = malloc(sampleCount * sizeof(float));
-    vDSP_vflt16((short *)rawSampleData, 1, samples, 1, sampleCount);
-
-    fvec_t * const inSampleVec  = new_fvec(hopSize);
-    fvec_t * const beatSampleVec = new_fvec(2);
-
-    uint_t ofs = 0;
-    while(ofs < sampleCount) {
-        fvec_zeros(inSampleVec);
-        for(uint_t i = 0; i < MIN(hopSize, sampleCount-ofs); ++i) {
-            fvec_set_sample(inSampleVec, samples[ofs+i], i);
-        }
-        aubio_tempo_do(_tempo, inSampleVec, beatSampleVec);
-        if(beatSampleVec->data[0] != 0) {
-            smpl_t const bpm        = aubio_tempo_get_bpm(_tempo);
-            smpl_t const confidence = aubio_tempo_get_confidence(_tempo);
-            dispatch_async(dispatch_get_main_queue(), ^{
-                if(_handlerBlock)
-                    _handlerBlock(bpm, confidence);
-            });
-        }
-        ofs += hopSize;
-    }
-    
-    del_fvec(inSampleVec);
-    del_fvec(beatSampleVec);
-    free(samples);
+    return _handlerBlock != nil;
 }
-
 @end
+
+static void _BPMDetector_audioCallback(__unsafe_unretained BPMDetector       *self,
+                                       __unsafe_unretained AEAudioController *audioController,
+                                       void                                  *source,
+                                       const AudioTimeStamp                  *time,
+                                       UInt32                                 frames,
+                                       AudioBufferList                       *audio)
+{
+        float * const samples = audio->mBuffers[0].mData;
+
+        fvec_t * const inSampleVec  = new_fvec(hopSize);
+        fvec_t * const beatSampleVec = new_fvec(2);
+
+        uint_t ofs = 0;
+        while(ofs < frames) {
+            fvec_zeros(inSampleVec);
+            fvec_zeros(beatSampleVec);
+            for(uint_t i = 0; i < MIN(hopSize, frames-ofs); ++i) {
+                fvec_set_sample(inSampleVec, samples[ofs+i], i);
+            }
+            aubio_tempo_do(self->_tempo, inSampleVec, beatSampleVec);
+            if(beatSampleVec->data[0] != 0) {
+                smpl_t const bpm        = aubio_tempo_get_bpm(self->_tempo);
+                smpl_t const confidence = aubio_tempo_get_confidence(self->_tempo);
+                printf(">> %.3f BPM @ %.2f confidence; last: %.2fs; [%.2f, %.2f]\n",
+                       bpm, confidence, aubio_tempo_get_last_s(self->_tempo),
+                       beatSampleVec->data[0], beatSampleVec->data[1]);
+
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    if(self->_handlerBlock)
+                        self->_handlerBlock(bpm, confidence);
+                });
+            }
+            ofs += hopSize;
+        }
+
+        del_fvec(inSampleVec);
+        del_fvec(beatSampleVec);
+}

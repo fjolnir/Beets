@@ -1,25 +1,42 @@
+#import <AVFoundation/AVFoundation.h>
+
 #import "BPMViewController.h"
 #import "BPMDetector.h"
+#import "TheAmazingAudioEngine.h"
+#import "AEPlaythroughChannel.h"
+#import "Audiobus.h"
 
 @implementation BPMViewController {
     BPMDetector *_detector;
     CATextLayer *_bpmLayer;
+    AEAudioController *_audioController;
+    ABAudiobusController *_audiobusController;
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
 
-    NSError *err;
-    AVCaptureDevice *device = [[AVCaptureDevice devicesWithMediaType:AVMediaTypeAudio] lastObject];
-    if(!device)
-        return;
+    _audioController = [[AEAudioController alloc] initWithAudioDescription:[AEAudioController nonInterleavedFloatStereoAudioDescription]
+                                                              inputEnabled:YES
+                                                        useVoiceProcessing:NO];
+    _audioController.preferredBufferDuration = 0.005;
+    _audioController.avoidMeasurementModeForBuiltInMic = NO;
+    _audioController.useMeasurementMode = YES;
 
-    AVCaptureDeviceInput *input = [[AVCaptureDeviceInput alloc] initWithDevice:device error:&err];
-    if(!input)
-        return;
 
-    _detector = [BPMDetector bpmDetectorWithCaptureInput:input];
+    _audiobusController = [[ABAudiobusController alloc] initWithApiKey:@"MTQxNzUwMzU3MCoqKkJlZXRzKioqQmVldHMuYXVkaW9idXM6Ly8=:luJd/XPwMQ4DcgNyEwHnpZF1M8yMLhYiBI1yPmmxoA75Oeo79iYsDwPKp9Pas0O9k25vbQ5XYTEjBo1EXW7WMcN95iaogBhu0j4dFcYhj1gBybOfMauD0umJQkrYFMwI"];
+
+    ABReceiverPort *remotePort = [[ABReceiverPort alloc] initWithName:@"beets" title:NSLocalizedString(@"Beets", nil)];
+    remotePort.clientFormat = *AEAudioControllerAudioDescription(_audioController);
+    [_audiobusController addReceiverPort:remotePort];
+    [_audioController setAudiobusReceiverPort:remotePort];
+
+    AEPlaythroughChannel *playthroughChannel = [[AEPlaythroughChannel alloc] initWithAudioController:_audioController];
+    [_audioController addInputReceiver:playthroughChannel];
+    [_audioController addChannels:@[playthroughChannel]];
+
+    _detector = [BPMDetector bpmDetectorWithAudioController:_audioController];
 
     _bpmLayer = [CATextLayer new];
     _bpmLayer.fontSize = 60;
@@ -30,6 +47,8 @@
     _bpmLayer.wrapped = NO;
     _bpmLayer.contentsScale = [[UIScreen mainScreen] scale];
     [self.view.layer addSublayer:_bpmLayer];
+
+    [_audioController start:NULL];
 }
 
 - (void)viewWillAppear:(BOOL const)aAnimated
@@ -38,7 +57,6 @@
 
     [[AVAudioSession sharedInstance] requestRecordPermission:^(BOOL granted) {
         [_detector listenWithBlock:^(double bpm, double confidence) {
-            NSLog(@">> %.3f BPM @ %.2f confidence", bpm, confidence);
             if(confidence < 0.2) {
                 _bpmLayer.string = @"...";
                 [self.view setNeedsLayout];

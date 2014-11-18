@@ -1,12 +1,13 @@
 #import <Foundation/Foundation.h>
-#import <AVFoundation/AVFoundation.h>
+
+@class AEAudioController;
 
 typedef void(^BPMDetectionBlock)(double bpm, double confidence);
 
-@interface BPMDetector : NSObject <AVCaptureAudioDataOutputSampleBufferDelegate>
-@property(nonatomic, readonly) AVCaptureInput *input;
+@interface BPMDetector : NSObject
+@property(nonatomic, readonly, getter=isRunning) BOOL running;
 
-+ (instancetype)bpmDetectorWithCaptureInput:(AVCaptureInput *)aInput;
++ (instancetype)bpmDetectorWithAudioController:(AEAudioController *)aController;
 
 - (void)listenWithBlock:(BPMDetectionBlock)aHandler;
 - (void)stopListening;
