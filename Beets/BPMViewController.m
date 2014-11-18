@@ -17,18 +17,20 @@
 {
     [super viewDidLoad];
 
-    _audioController = [[AEAudioController alloc] initWithAudioDescription:[AEAudioController nonInterleavedFloatStereoAudioDescription]
+    AudioStreamBasicDescription const streamDescription = [AEAudioController nonInterleavedFloatStereoAudioDescription];
+    _audioController = [[AEAudioController alloc] initWithAudioDescription:streamDescription
                                                               inputEnabled:YES
                                                         useVoiceProcessing:NO];
-    _audioController.preferredBufferDuration = 0.005;
     _audioController.avoidMeasurementModeForBuiltInMic = NO;
-    _audioController.useMeasurementMode = YES;
+    _audioController.useMeasurementMode                = YES;
+    _audioController.preferredBufferDuration           = 0.005;
+
 
 
     _audiobusController = [[ABAudiobusController alloc] initWithApiKey:@"MTQxNzUwMzU3MCoqKkJlZXRzKioqQmVldHMuYXVkaW9idXM6Ly8=:luJd/XPwMQ4DcgNyEwHnpZF1M8yMLhYiBI1yPmmxoA75Oeo79iYsDwPKp9Pas0O9k25vbQ5XYTEjBo1EXW7WMcN95iaogBhu0j4dFcYhj1gBybOfMauD0umJQkrYFMwI"];
 
     ABReceiverPort *remotePort = [[ABReceiverPort alloc] initWithName:@"beets" title:NSLocalizedString(@"Beets", nil)];
-    remotePort.clientFormat = *AEAudioControllerAudioDescription(_audioController);
+    remotePort.clientFormat = streamDescription;
     [_audiobusController addReceiverPort:remotePort];
     [_audioController setAudiobusReceiverPort:remotePort];
 
