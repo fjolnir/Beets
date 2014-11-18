@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		C7A662E41A18BC2F00858C0E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A662E31A18BC2F00858C0E /* main.m */; };
-		C7A662E71A18BC2F00858C0E /* BPMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A662E61A18BC2F00858C0E /* BPMAppDelegate.m */; };
 		C7A662EA1A18BC2F00858C0E /* BPMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A662E91A18BC2F00858C0E /* BPMViewController.m */; };
 		C7A662ED1A18BC2F00858C0E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7A662EB1A18BC2F00858C0E /* Main.storyboard */; };
 		C7A662EF1A18BC2F00858C0E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7A662EE1A18BC2F00858C0E /* Images.xcassets */; };
@@ -48,8 +47,6 @@
 		C7A662DE1A18BC2F00858C0E /* Beets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7A662E21A18BC2F00858C0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7A662E31A18BC2F00858C0E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C7A662E51A18BC2F00858C0E /* BPMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BPMAppDelegate.h; sourceTree = "<group>"; };
-		C7A662E61A18BC2F00858C0E /* BPMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BPMAppDelegate.m; sourceTree = "<group>"; };
 		C7A662E81A18BC2F00858C0E /* BPMViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BPMViewController.h; sourceTree = "<group>"; };
 		C7A662E91A18BC2F00858C0E /* BPMViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BPMViewController.m; sourceTree = "<group>"; };
 		C7A662EC1A18BC2F00858C0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -128,8 +125,6 @@
 		C7A662E01A18BC2F00858C0E /* Beets */ = {
 			isa = PBXGroup;
 			children = (
-				C7A662E51A18BC2F00858C0E /* BPMAppDelegate.h */,
-				C7A662E61A18BC2F00858C0E /* BPMAppDelegate.m */,
 				C7A662E81A18BC2F00858C0E /* BPMViewController.h */,
 				C7A662E91A18BC2F00858C0E /* BPMViewController.m */,
 				C7A663091A18BF3100858C0E /* BPMDetector.h */,
@@ -336,7 +331,6 @@
 				C7AEBD811A1B2DE70018F22A /* TPCircularBuffer.c in Sources */,
 				C7AEBD7E1A1B2DE70018F22A /* AERecorder.m in Sources */,
 				C7A6630B1A18BF3100858C0E /* BPMDetector.m in Sources */,
-				C7A662E71A18BC2F00858C0E /* BPMAppDelegate.m in Sources */,
 				C7AEBD801A1B2DE70018F22A /* TPCircularBuffer+AudioBufferList.c in Sources */,
 				C7A662E41A18BC2F00858C0E /* main.m in Sources */,
 			);
