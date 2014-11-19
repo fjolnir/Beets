@@ -95,9 +95,12 @@ static void _BPMDetector_audioCallback(__unsafe_unretained BPMDetector       *se
             if(beatSampleVec->data[0] != 0) {
                 smpl_t const bpm        = aubio_tempo_get_bpm(self->_tempo);
                 smpl_t const confidence = aubio_tempo_get_confidence(self->_tempo);
+
+                #ifdef DEBUG
                 printf(">> %.3f BPM @ %.2f confidence; last: %.2fs; [%.2f, %.2f]\n",
                        bpm, confidence, aubio_tempo_get_last_s(self->_tempo),
                        beatSampleVec->data[0], beatSampleVec->data[1]);
+                #endif
 
                 dispatch_async(dispatch_get_main_queue(), ^{
                     if(self->_handlerBlock)
