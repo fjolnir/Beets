@@ -1,6 +1,3 @@
 [submodule "TheAmazingAudioEngine"]
 	path = TheAmazingAudioEngine
 	url = https://github.com/TheAmazingAudioEngine/TheAmazingAudioEngine.git
-[submodule "AudioBus-SDK"]
-	path = AudioBus-SDK
-	url = http://developer.audiob.us/download/SDK.git

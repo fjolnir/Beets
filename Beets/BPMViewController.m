@@ -31,7 +31,7 @@
 
 
 #ifdef BPM_USE_AUDIOBUS
-    _audiobusController = [[ABAudiobusController alloc] initWithApiKey:@"MTQxNzUwMzU3MCoqKkJlZXRzKioqQmVldHMuYXVkaW9idXM6Ly8=:luJd/XPwMQ4DcgNyEwHnpZF1M8yMLhYiBI1yPmmxoA75Oeo79iYsDwPKp9Pas0O9k25vbQ5XYTEjBo1EXW7WMcN95iaogBhu0j4dFcYhj1gBybOfMauD0umJQkrYFMwI"];
+    _audiobusController = [[ABAudiobusController alloc] initWithApiKey:AUDIOBUS_API_KEY_HERE];
 
     ABReceiverPort *remotePort = [[ABReceiverPort alloc] initWithName:@"beets" title:NSLocalizedString(@"Beets", nil)];
     remotePort.clientFormat = streamDescription;
