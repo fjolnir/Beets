@@ -33,9 +33,9 @@
 #ifdef BPM_USE_AUDIOBUS
     _audiobusController = [[ABAudiobusController alloc] initWithApiKey:AUDIOBUS_API_KEY_HERE];
 
-    NSString * const appName = [[NSBundle mainBundle] localizedInfoDictionary][kCFBundleNameKey];
+    NSString * const appName = [[NSBundle mainBundle] localizedInfoDictionary][(__bridge id)kCFBundleNameKey];
     ABReceiverPort * const remotePort = [[ABReceiverPort alloc] initWithName:@"beets"
-                                                                title:appName];
+                                                                       title:appName];
     remotePort.clientFormat = streamDescription;
     [_audiobusController addReceiverPort:remotePort];
     [_audioController setAudiobusReceiverPort:remotePort];
@@ -83,11 +83,6 @@
 - (void)setBpmView:(BPMView *)aView
 {
     self.view = aView;
-}
-
-- (BOOL)prefersStatusBarHidden
-{
-    return YES;
 }
 
 @end
