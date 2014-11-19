@@ -5,12 +5,16 @@
 #import "BPMDetector.h"
 #import "TheAmazingAudioEngine.h"
 #import "AEPlaythroughChannel.h"
-#import "Audiobus.h"
+#ifdef BPM_USE_AUDIOBUS
+#    import "Audiobus.h"
+#endif
 
 @implementation BPMViewController {
     BPMDetector *_detector;
     AEAudioController *_audioController;
+#ifdef BPM_USE_AUDIOBUS
     ABAudiobusController *_audiobusController;
+#endif
 }
 
 - (void)viewDidLoad
@@ -26,7 +30,7 @@
     _audioController.preferredBufferDuration           = 0.005;
 
 
-
+#ifdef BPM_USE_AUDIOBUS
     _audiobusController = [[ABAudiobusController alloc] initWithApiKey:@"MTQxNzUwMzU3MCoqKkJlZXRzKioqQmVldHMuYXVkaW9idXM6Ly8=:luJd/XPwMQ4DcgNyEwHnpZF1M8yMLhYiBI1yPmmxoA75Oeo79iYsDwPKp9Pas0O9k25vbQ5XYTEjBo1EXW7WMcN95iaogBhu0j4dFcYhj1gBybOfMauD0umJQkrYFMwI"];
 
     ABReceiverPort *remotePort = [[ABReceiverPort alloc] initWithName:@"beets" title:NSLocalizedString(@"Beets", nil)];
@@ -37,6 +41,7 @@
     AEPlaythroughChannel *playthroughChannel = [[AEPlaythroughChannel alloc] initWithAudioController:_audioController];
     [_audioController addInputReceiver:playthroughChannel];
     [_audioController addChannels:@[playthroughChannel]];
+#endif
 
     _detector = [BPMDetector bpmDetectorWithAudioController:_audioController];
 

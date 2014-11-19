@@ -8,6 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		C75272531A1B967100C76AFE /* BPMView.m in Sources */ = {isa = PBXBuildFile; fileRef = C75272521A1B967100C76AFE /* BPMView.m */; };
+		C75272581A1C5B0600C76AFE /* AEPlaythroughChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = C7AEBD701A1B2DE70018F22A /* AEPlaythroughChannel.m */; };
+		C75272591A1C5B0600C76AFE /* AEMixerBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = C7AEBD6E1A1B2DE70018F22A /* AEMixerBuffer.m */; };
+		C752725A1A1C5B0600C76AFE /* BPMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A662E91A18BC2F00858C0E /* BPMViewController.m */; };
+		C752725B1A1C5B0600C76AFE /* TPCircularBuffer.c in Sources */ = {isa = PBXBuildFile; fileRef = C7AEBD771A1B2DE70018F22A /* TPCircularBuffer.c */; };
+		C752725C1A1C5B0600C76AFE /* AERecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = C7AEBD721A1B2DE70018F22A /* AERecorder.m */; };
+		C752725D1A1C5B0600C76AFE /* BPMDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A6630A1A18BF3100858C0E /* BPMDetector.m */; };
+		C752725E1A1C5B0600C76AFE /* TPCircularBuffer+AudioBufferList.c in Sources */ = {isa = PBXBuildFile; fileRef = C7AEBD751A1B2DE70018F22A /* TPCircularBuffer+AudioBufferList.c */; };
+		C752725F1A1C5B0600C76AFE /* BPMView.m in Sources */ = {isa = PBXBuildFile; fileRef = C75272521A1B967100C76AFE /* BPMView.m */; };
+		C75272601A1C5B0600C76AFE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A662E31A18BC2F00858C0E /* main.m */; };
+		C75272621A1C5B0600C76AFE /* libTheAmazingAudioEngine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C7AEBD871A1B2DF90018F22A /* libTheAmazingAudioEngine.a */; };
+		C75272631A1C5B0600C76AFE /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7AEBCFC1A1B13460018F22A /* CoreAudio.framework */; };
+		C75272641A1C5B0600C76AFE /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7A6630C1A18BF5300858C0E /* AVFoundation.framework */; };
+		C75272651A1C5B0600C76AFE /* libaubio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C7A663071A18BF1300858C0E /* libaubio.a */; };
+		C75272661A1C5B0600C76AFE /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7A663111A19D4BD00858C0E /* AudioToolbox.framework */; };
+		C75272671A1C5B0600C76AFE /* libAudiobus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C7AEBD001A1B23040018F22A /* libAudiobus.a */; };
+		C75272691A1C5B0600C76AFE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7A662EB1A18BC2F00858C0E /* Main.storyboard */; };
+		C752726A1A1C5B0600C76AFE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7A662F01A18BC2F00858C0E /* LaunchScreen.xib */; };
+		C752726B1A1C5B0600C76AFE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7A662EE1A18BC2F00858C0E /* Images.xcassets */; };
 		C7A662E41A18BC2F00858C0E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A662E31A18BC2F00858C0E /* main.m */; };
 		C7A662EA1A18BC2F00858C0E /* BPMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A662E91A18BC2F00858C0E /* BPMViewController.m */; };
 		C7A662ED1A18BC2F00858C0E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7A662EB1A18BC2F00858C0E /* Main.storyboard */; };
@@ -18,7 +36,6 @@
 		C7A6630D1A18BF5300858C0E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7A6630C1A18BF5300858C0E /* AVFoundation.framework */; };
 		C7A663121A19D4BD00858C0E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7A663111A19D4BD00858C0E /* AudioToolbox.framework */; };
 		C7AEBCFD1A1B13460018F22A /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7AEBCFC1A1B13460018F22A /* CoreAudio.framework */; };
-		C7AEBD011A1B23040018F22A /* libAudiobus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C7AEBD001A1B23040018F22A /* libAudiobus.a */; };
 		C7AEBD7C1A1B2DE70018F22A /* AEMixerBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = C7AEBD6E1A1B2DE70018F22A /* AEMixerBuffer.m */; };
 		C7AEBD7D1A1B2DE70018F22A /* AEPlaythroughChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = C7AEBD701A1B2DE70018F22A /* AEPlaythroughChannel.m */; };
 		C7AEBD7E1A1B2DE70018F22A /* AERecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = C7AEBD721A1B2DE70018F22A /* AERecorder.m */; };
@@ -28,6 +45,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		C75272561A1C5B0600C76AFE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7AEBD821A1B2DF90018F22A /* TheAmazingAudioEngine.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 4C215CEB1523A7D500D36CAD;
+			remoteInfo = TheAmazingAudioEngine;
+		};
 		C7AEBD861A1B2DF90018F22A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C7AEBD821A1B2DF90018F22A /* TheAmazingAudioEngine.xcodeproj */;
@@ -47,6 +71,7 @@
 /* Begin PBXFileReference section */
 		C75272511A1B967100C76AFE /* BPMView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPMView.h; sourceTree = "<group>"; };
 		C75272521A1B967100C76AFE /* BPMView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPMView.m; sourceTree = "<group>"; };
+		C752726F1A1C5B0600C76AFE /* Beets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7A662DE1A18BC2F00858C0E /* Beets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Beets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7A662E21A18BC2F00858C0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7A662E31A18BC2F00858C0E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -92,6 +117,19 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		C75272611A1C5B0600C76AFE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C75272621A1C5B0600C76AFE /* libTheAmazingAudioEngine.a in Frameworks */,
+				C75272631A1C5B0600C76AFE /* CoreAudio.framework in Frameworks */,
+				C75272641A1C5B0600C76AFE /* AVFoundation.framework in Frameworks */,
+				C75272651A1C5B0600C76AFE /* libaubio.a in Frameworks */,
+				C75272661A1C5B0600C76AFE /* AudioToolbox.framework in Frameworks */,
+				C75272671A1C5B0600C76AFE /* libAudiobus.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C7A662DB1A18BC2F00858C0E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -101,7 +139,6 @@
 				C7A6630D1A18BF5300858C0E /* AVFoundation.framework in Frameworks */,
 				C7A663081A18BF1300858C0E /* libaubio.a in Frameworks */,
 				C7A663121A19D4BD00858C0E /* AudioToolbox.framework in Frameworks */,
-				C7AEBD011A1B23040018F22A /* libAudiobus.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				C7A662DE1A18BC2F00858C0E /* Beets.app */,
+				C752726F1A1C5B0600C76AFE /* Beets.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -237,6 +275,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		C75272541A1C5B0600C76AFE /* Beets (Audiobus) */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C752726C1A1C5B0600C76AFE /* Build configuration list for PBXNativeTarget "Beets (Audiobus)" */;
+			buildPhases = (
+				C75272571A1C5B0600C76AFE /* Sources */,
+				C75272611A1C5B0600C76AFE /* Frameworks */,
+				C75272681A1C5B0600C76AFE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C75272551A1C5B0600C76AFE /* PBXTargetDependency */,
+			);
+			name = "Beets (Audiobus)";
+			productName = Beets;
+			productReference = C752726F1A1C5B0600C76AFE /* Beets.app */;
+			productType = "com.apple.product-type.application";
+		};
 		C7A662DD1A18BC2F00858C0E /* Beets */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C7A663011A18BC2F00858C0E /* Build configuration list for PBXNativeTarget "Beets" */;
@@ -298,6 +354,7 @@
 			projectRoot = "";
 			targets = (
 				C7A662DD1A18BC2F00858C0E /* Beets */,
+				C75272541A1C5B0600C76AFE /* Beets (Audiobus) */,
 			);
 		};
 /* End PBXProject section */
@@ -313,6 +370,16 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
+		C75272681A1C5B0600C76AFE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C75272691A1C5B0600C76AFE /* Main.storyboard in Resources */,
+				C752726A1A1C5B0600C76AFE /* LaunchScreen.xib in Resources */,
+				C752726B1A1C5B0600C76AFE /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C7A662DC1A18BC2F00858C0E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -326,6 +393,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C75272571A1C5B0600C76AFE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C75272581A1C5B0600C76AFE /* AEPlaythroughChannel.m in Sources */,
+				C75272591A1C5B0600C76AFE /* AEMixerBuffer.m in Sources */,
+				C752725A1A1C5B0600C76AFE /* BPMViewController.m in Sources */,
+				C752725B1A1C5B0600C76AFE /* TPCircularBuffer.c in Sources */,
+				C752725C1A1C5B0600C76AFE /* AERecorder.m in Sources */,
+				C752725D1A1C5B0600C76AFE /* BPMDetector.m in Sources */,
+				C752725E1A1C5B0600C76AFE /* TPCircularBuffer+AudioBufferList.c in Sources */,
+				C752725F1A1C5B0600C76AFE /* BPMView.m in Sources */,
+				C75272601A1C5B0600C76AFE /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C7A662DA1A18BC2F00858C0E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -345,6 +428,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		C75272551A1C5B0600C76AFE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = TheAmazingAudioEngine;
+			targetProxy = C75272561A1C5B0600C76AFE /* PBXContainerItemProxy */;
+		};
 		C7AEBD891A1B2E000018F22A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = TheAmazingAudioEngine;
@@ -372,6 +460,64 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		C752726D1A1C5B0600C76AFE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Beets/Beets.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					"BPM_USE_AUDIOBUS=1",
+				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(PROJECT_DIR)/aubio/include",
+					"$(BUILT_PRODUCTS_DIR)",
+				);
+				INFOPLIST_FILE = Beets/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/aubio",
+					"$(PROJECT_DIR)/Audiobus-SDK",
+				);
+				PRODUCT_NAME = Beets;
+				PROVISIONING_PROFILE = "";
+				USER_HEADER_SEARCH_PATHS = TheAmazingAudioEngine/TheAmazingAudioEngine;
+			};
+			name = Debug;
+		};
+		C752726E1A1C5B0600C76AFE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Beets/Beets.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PREPROCESSOR_DEFINITIONS = "BPM_USE_AUDIOBUS=1";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(PROJECT_DIR)/aubio/include",
+					"$(BUILT_PRODUCTS_DIR)",
+				);
+				INFOPLIST_FILE = Beets/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/aubio",
+					"$(PROJECT_DIR)/Audiobus-SDK",
+				);
+				PRODUCT_NAME = Beets;
+				PROVISIONING_PROFILE = "";
+				USER_HEADER_SEARCH_PATHS = TheAmazingAudioEngine/TheAmazingAudioEngine;
+			};
+			name = Release;
+		};
 		C7A662FF1A18BC2F00858C0E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -503,6 +649,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C752726C1A1C5B0600C76AFE /* Build configuration list for PBXNativeTarget "Beets (Audiobus)" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C752726D1A1C5B0600C76AFE /* Debug */,
+				C752726E1A1C5B0600C76AFE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C7A662D91A18BC2F00858C0E /* Build configuration list for PBXProject "Beets" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

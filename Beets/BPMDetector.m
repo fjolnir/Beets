@@ -3,7 +3,6 @@
 #import <aubio/aubio.h>
 #import "TheAmazingAudioEngine.h"
 #import <CoreAudio/CoreAudioTypes.h>
-#import "Audiobus.h"
 
 static uint_t const fftSize = 1024,
 hopSize = fftSize/4;
