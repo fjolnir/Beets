@@ -33,12 +33,14 @@
 #ifdef BPM_USE_AUDIOBUS
     _audiobusController = [[ABAudiobusController alloc] initWithApiKey:AUDIOBUS_API_KEY_HERE];
 
-    ABReceiverPort *remotePort = [[ABReceiverPort alloc] initWithName:@"beets" title:NSLocalizedString(@"Beets", nil)];
+    NSString * const appName = [[NSBundle mainBundle] localizedInfoDictionary][kCFBundleNameKey];
+    ABReceiverPort * const remotePort = [[ABReceiverPort alloc] initWithName:@"beets"
+                                                                title:appName];
     remotePort.clientFormat = streamDescription;
     [_audiobusController addReceiverPort:remotePort];
     [_audioController setAudiobusReceiverPort:remotePort];
 
-    AEPlaythroughChannel *playthroughChannel = [[AEPlaythroughChannel alloc] initWithAudioController:_audioController];
+    AEPlaythroughChannel * const playthroughChannel = [[AEPlaythroughChannel alloc] initWithAudioController:_audioController];
     [_audioController addInputReceiver:playthroughChannel];
     [_audioController addChannels:@[playthroughChannel]];
 #endif

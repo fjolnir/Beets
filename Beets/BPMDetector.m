@@ -22,7 +22,6 @@ static void _BPMDetector_audioCallback(__unsafe_unretained BPMDetector       *se
     @public
     AEAudioController *_audioController;
     BPMDetectionBlock _handlerBlock;
-
     aubio_tempo_t *_tempo;
 }
 @dynamic running;
