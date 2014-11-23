@@ -20,7 +20,6 @@
 		C75272621A1C5B0600C76AFE /* libTheAmazingAudioEngine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C7AEBD871A1B2DF90018F22A /* libTheAmazingAudioEngine.a */; };
 		C75272631A1C5B0600C76AFE /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7AEBCFC1A1B13460018F22A /* CoreAudio.framework */; };
 		C75272641A1C5B0600C76AFE /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7A6630C1A18BF5300858C0E /* AVFoundation.framework */; };
-		C75272651A1C5B0600C76AFE /* libaubio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C7A663071A18BF1300858C0E /* libaubio.a */; };
 		C75272661A1C5B0600C76AFE /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7A663111A19D4BD00858C0E /* AudioToolbox.framework */; };
 		C75272671A1C5B0600C76AFE /* libAudiobus.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C7AEBD001A1B23040018F22A /* libAudiobus.a */; };
 		C75272691A1C5B0600C76AFE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7A662EB1A18BC2F00858C0E /* Main.storyboard */; };
@@ -31,7 +30,6 @@
 		C7A662ED1A18BC2F00858C0E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7A662EB1A18BC2F00858C0E /* Main.storyboard */; };
 		C7A662EF1A18BC2F00858C0E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7A662EE1A18BC2F00858C0E /* Images.xcassets */; };
 		C7A662F21A18BC2F00858C0E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7A662F01A18BC2F00858C0E /* LaunchScreen.xib */; };
-		C7A663081A18BF1300858C0E /* libaubio.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C7A663071A18BF1300858C0E /* libaubio.a */; };
 		C7A6630B1A18BF3100858C0E /* BPMDetector.m in Sources */ = {isa = PBXBuildFile; fileRef = C7A6630A1A18BF3100858C0E /* BPMDetector.m */; };
 		C7A6630D1A18BF5300858C0E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7A6630C1A18BF5300858C0E /* AVFoundation.framework */; };
 		C7A663121A19D4BD00858C0E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7A663111A19D4BD00858C0E /* AudioToolbox.framework */; };
@@ -42,6 +40,8 @@
 		C7AEBD801A1B2DE70018F22A /* TPCircularBuffer+AudioBufferList.c in Sources */ = {isa = PBXBuildFile; fileRef = C7AEBD751A1B2DE70018F22A /* TPCircularBuffer+AudioBufferList.c */; };
 		C7AEBD811A1B2DE70018F22A /* TPCircularBuffer.c in Sources */ = {isa = PBXBuildFile; fileRef = C7AEBD771A1B2DE70018F22A /* TPCircularBuffer.c */; };
 		C7AEBD8A1A1B2E030018F22A /* libTheAmazingAudioEngine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C7AEBD871A1B2DF90018F22A /* libTheAmazingAudioEngine.a */; };
+		C7ED9B561A2272DA00A47BEE /* aubio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7ED9B551A2272DA00A47BEE /* aubio.framework */; };
+		C7ED9B571A2272DA00A47BEE /* aubio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7ED9B551A2272DA00A47BEE /* aubio.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,7 +80,6 @@
 		C7A662EC1A18BC2F00858C0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C7A662EE1A18BC2F00858C0E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		C7A662F11A18BC2F00858C0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		C7A663071A18BF1300858C0E /* libaubio.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libaubio.a; path = aubio/libaubio.a; sourceTree = SOURCE_ROOT; };
 		C7A663091A18BF3100858C0E /* BPMDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPMDetector.h; sourceTree = "<group>"; };
 		C7A6630A1A18BF3100858C0E /* BPMDetector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPMDetector.m; sourceTree = "<group>"; };
 		C7A6630C1A18BF5300858C0E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -114,6 +113,7 @@
 		C7AEBD771A1B2DE70018F22A /* TPCircularBuffer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = TPCircularBuffer.c; sourceTree = "<group>"; };
 		C7AEBD781A1B2DE70018F22A /* TPCircularBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPCircularBuffer.h; sourceTree = "<group>"; };
 		C7AEBD821A1B2DF90018F22A /* TheAmazingAudioEngine.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TheAmazingAudioEngine.xcodeproj; path = TheAmazingAudioEngine/TheAmazingAudioEngine.xcodeproj; sourceTree = SOURCE_ROOT; };
+		C7ED9B551A2272DA00A47BEE /* aubio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = aubio.framework; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,9 +122,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C75272621A1C5B0600C76AFE /* libTheAmazingAudioEngine.a in Frameworks */,
+				C7ED9B571A2272DA00A47BEE /* aubio.framework in Frameworks */,
 				C75272631A1C5B0600C76AFE /* CoreAudio.framework in Frameworks */,
 				C75272641A1C5B0600C76AFE /* AVFoundation.framework in Frameworks */,
-				C75272651A1C5B0600C76AFE /* libaubio.a in Frameworks */,
 				C75272661A1C5B0600C76AFE /* AudioToolbox.framework in Frameworks */,
 				C75272671A1C5B0600C76AFE /* libAudiobus.a in Frameworks */,
 			);
@@ -135,9 +135,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7AEBD8A1A1B2E030018F22A /* libTheAmazingAudioEngine.a in Frameworks */,
+				C7ED9B561A2272DA00A47BEE /* aubio.framework in Frameworks */,
 				C7AEBCFD1A1B13460018F22A /* CoreAudio.framework in Frameworks */,
 				C7A6630D1A18BF5300858C0E /* AVFoundation.framework in Frameworks */,
-				C7A663081A18BF1300858C0E /* libaubio.a in Frameworks */,
 				C7A663121A19D4BD00858C0E /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -195,7 +195,7 @@
 		C7A6630E1A18C07D00858C0E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C7A663071A18BF1300858C0E /* libaubio.a */,
+				C7ED9B551A2272DA00A47BEE /* aubio.framework */,
 				C7AEBCFC1A1B13460018F22A /* CoreAudio.framework */,
 				C7A663111A19D4BD00858C0E /* AudioToolbox.framework */,
 				C7A6630C1A18BF5300858C0E /* AVFoundation.framework */,
@@ -467,6 +467,10 @@
 				CODE_SIGN_ENTITLEMENTS = Beets/Beets.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -475,14 +479,12 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"$(PROJECT_DIR)/aubio/include",
 					"$(BUILT_PRODUCTS_DIR)",
 				);
 				INFOPLIST_FILE = Beets/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/aubio",
 					"$(PROJECT_DIR)/Audiobus-SDK",
 				);
 				PRODUCT_NAME = Beets;
@@ -498,18 +500,20 @@
 				CODE_SIGN_ENTITLEMENTS = Beets/Beets.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PREPROCESSOR_DEFINITIONS = "BPM_USE_AUDIOBUS=1";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"$(PROJECT_DIR)/aubio/include",
 					"$(BUILT_PRODUCTS_DIR)",
 				);
 				INFOPLIST_FILE = Beets/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/aubio",
 					"$(PROJECT_DIR)/Audiobus-SDK",
 				);
 				PRODUCT_NAME = Beets;
@@ -601,17 +605,19 @@
 				CODE_SIGN_ENTITLEMENTS = Beets/Beets.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"$(PROJECT_DIR)/aubio/include",
 					"$(BUILT_PRODUCTS_DIR)",
 				);
 				INFOPLIST_FILE = Beets/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/aubio",
 					"$(PROJECT_DIR)/Audiobus-SDK",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -627,17 +633,19 @@
 				CODE_SIGN_ENTITLEMENTS = Beets/Beets.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"$(PROJECT_DIR)/aubio/include",
 					"$(BUILT_PRODUCTS_DIR)",
 				);
 				INFOPLIST_FILE = Beets/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/aubio",
 					"$(PROJECT_DIR)/Audiobus-SDK",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
